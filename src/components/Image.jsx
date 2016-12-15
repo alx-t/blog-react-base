@@ -9,6 +9,6 @@ export default class Image extends React.Component {
       alt: this.props.alt,
       width: this.props.width,
       height: this.props.height
-    }, null);
+    });
   }
 };

@@ -5,15 +5,16 @@ import TextBox from './TextBox';
 
 export default class BlogItem extends React.Component {
   render() {
+    const item = this.props.item;
     return (
       <div>
-        <Image
-          alt={this.props.alt}
-          src={this.props.src}
-          width={this.props.width}
-          height={this.props.height}
+-        <Image
+          alt={item.alt}
+          src={item.src}
+          width={item.width}
+          height={item.height}
         />
-        <TextBox>{this.props.text}</TextBox>
+        <TextBox>{item.text}</TextBox>
       </div>
     );
   }
