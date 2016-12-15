@@ -7,10 +7,12 @@ export default class BlogList extends React.Component {
     const { records } = this.props.items;
     const listItems = records.map(function(item, key) {
       const blogItem = {
-        alt: 'oops, no image',
-        src: item.img_src,
-        width: '60',
-        height: '40',
+        image: {
+          alt: 'oops, no image',
+          src: item.img_src,
+          width: '60',
+          height: '40'
+        },
         text: item.text
       }
       return (

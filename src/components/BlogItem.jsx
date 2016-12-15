@@ -9,10 +9,10 @@ export default class BlogItem extends React.Component {
     return (
       <div>
 -        <Image
-          alt={item.alt}
-          src={item.src}
-          width={item.width}
-          height={item.height}
+          alt={item.image.alt}
+          src={item.image.src}
+          width={item.image.width}
+          height={item.image.height}
         />
         <TextBox>{item.text}</TextBox>
       </div>
