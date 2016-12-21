@@ -1,23 +1,14 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import BlogItem from './BlogItem';
 
 export default class BlogList extends React.Component {
   render() {
-    const { records } = this.props.items;
-    const listItems = records.map(function(item, key) {
-      const blogItem = {
-        image: {
-          alt: 'oops, no image',
-          src: item.img_src,
-          width: '60',
-          height: '40'
-        },
-        text: item.text
-      }
+    const { items } = this.props.items;
+    const listItems = items.map(function(item, key) {
       return (
         <div key={key}>
-          <BlogItem item={blogItem} />
+          <BlogItem item={item} />
         </div>
       );
     });
@@ -28,4 +19,8 @@ export default class BlogList extends React.Component {
       </div>
     )
   }
+}
+
+BlogList.propTypes = {
+  items: PropTypes.shape({ items: PropTypes.array })
 }

@@ -1,12 +1,12 @@
 import React from 'react';
 
 import BlogList from './BlogList';
-import { records } from '../constants/items'
+import { items } from '../constants/items'
 
 export default class BlogPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { records };
+    this.state = { items };
   }
 
   render() {
