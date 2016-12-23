@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'reactstrap';
 import TextBox from './TextBox';
 import FormattedDate from './FormattedDate';
 
-export default class Author extends React.Component {
+export default class Meta extends React.Component {
   render() {
     const { author, created_at, updated_at } = this.props;
     return (
@@ -28,13 +28,13 @@ export default class Author extends React.Component {
   }
 }
 
-Author.propTypes = {
+Meta.propTypes = {
   author: PropTypes.string,
   created_at: PropTypes.instanceOf(Date),
   updated_at: PropTypes.instanceOf(Date)
 }
 
-Author.defaultProps = {
+Meta.defaultProps = {
   created_at: new Date(),
   apdated_at: new Date()
 }

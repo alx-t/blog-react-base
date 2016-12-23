@@ -3,12 +3,12 @@ import { Container, Row, Col } from 'reactstrap';
 
 import Image from './Image';
 import TextBox from './TextBox';
-import Author from './Author';
+import Meta from './Meta';
 import Like from './Like';
 
 export default class BlogItem extends React.Component {
   render() {
-    const { image, text, author, likes } = this.props.item;
+    const { image, text, meta, likes } = this.props.item;
     return (
       <Container>
         <Row>
@@ -20,7 +20,7 @@ export default class BlogItem extends React.Component {
           </Col>
         </Row>
         <Row>
-          <Author {...author} />
+          <Meta {...meta} />
         </Row>
         <Row>
           <Like likes={likes} />
@@ -31,22 +31,13 @@ export default class BlogItem extends React.Component {
 };
 
 BlogItem.propTypes = {
-  image: PropTypes.shape({
-                      alt: PropTypes.string,
-                      src: PropTypes.string,
-                      width: PropTypes.number,
-                      height: PropTypes.number
-                    }),
+  image: PropTypes.instanceOf(Image.propTypes),
   text: PropTypes.string,
-  author: PropTypes.shape({
-                      author: PropTypes.string,
-                      created_at: PropTypes.instanceOf(Date),
-                      updated_at: PropTypes.instanceOf(Date)
-                    }),
+  meta: PropTypes.instanceOf(Meta.propTypes),
   likes: PropTypes.number
 }
 
-// Image & Author got defaults
+// Image & Meta got defaults
 BlogItem.defaultProps = {
   text: 'default text'
 }

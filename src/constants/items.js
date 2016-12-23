@@ -7,7 +7,7 @@ export const items = [
       height: 46
     },
     text: 'BlogItem sample text 1',
-    author: {
+    meta: {
       author: 'Author 1',
       created_at: new Date(2010, 3, 3),
       updated_at: new Date(2010, 4, 4)
@@ -22,7 +22,7 @@ export const items = [
       height: 46
     },
     text: 'BlogItem sample text 2',
-    author: {
+    meta: {
       author: 'Author 2',
       created_at: new Date(2010, 5, 5),
       updated_at: new Date(2010, 6, 4)
@@ -37,7 +37,7 @@ export const items = [
       height: 46
     },
     text: 'BlogItem sample text 3',
-    author: {
+    meta: {
       author: 'Author 3'
     },
     likes: 13

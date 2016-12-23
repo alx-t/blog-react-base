@@ -1,17 +1,20 @@
 import React, { PropTypes } from 'react';
+import { map } from 'lodash';
 
 import BlogItem from './BlogItem';
 
 export default class BlogList extends React.Component {
   render() {
-    const { items } = this.props.items;
-    const listItems = items.map(function(item, key) {
+    const items = this.props.items;
+    const listItems = map(items, function(item, key) {
       return (
         <div key={key}>
           <BlogItem item={item} />
         </div>
       );
     });
+
+    console.log(BlogItem.propTypes);
 
     return (
       <div>
@@ -22,5 +25,6 @@ export default class BlogList extends React.Component {
 }
 
 BlogList.propTypes = {
-  items: PropTypes.shape({ items: PropTypes.array })
+  items: PropTypes.arrayOf(PropTypes.object)
+  //items: PropTypes.arrayOf(PropTypes.instanceOf(BlogItem.propTypes))
 }
