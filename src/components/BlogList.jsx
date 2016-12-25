@@ -14,8 +14,6 @@ export default class BlogList extends React.Component {
       );
     });
 
-    console.log(BlogItem.propTypes);
-
     return (
       <div>
         {listItems}
@@ -25,6 +23,5 @@ export default class BlogList extends React.Component {
 }
 
 BlogList.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.object)
-  //items: PropTypes.arrayOf(PropTypes.instanceOf(BlogItem.propTypes))
+  items: PropTypes.arrayOf(PropTypes.shape(BlogItem.propTypes))
 }

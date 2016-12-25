@@ -31,9 +31,9 @@ export default class BlogItem extends React.Component {
 };
 
 BlogItem.propTypes = {
-  image: PropTypes.instanceOf(Image.propTypes),
+  image: PropTypes.shape(Image.propTypes),
   text: PropTypes.string,
-  meta: PropTypes.instanceOf(Meta.propTypes),
+  meta: PropTypes.shape(Meta.propTypes),
   likes: PropTypes.number
 }
 
