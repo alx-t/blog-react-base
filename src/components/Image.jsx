@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const DOM = React.DOM;
 
@@ -12,3 +12,16 @@ export default class Image extends React.Component {
     });
   }
 };
+
+Image.propTypes = {
+  alt: PropTypes.string,
+  src: PropTypes.string,
+  width: PropTypes.number,
+  height: PropTypes.number
+}
+
+Image.defaultProps = {
+  alt: 'default image',
+  width: 60,
+  height: 40
+}
