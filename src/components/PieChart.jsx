@@ -14,6 +14,12 @@ export default class PieChart extends React.Component {
     this.chart.destroy();
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.chart.load({
+      columns: nextProps.columns
+    })
+  }
+
   render() {
     return (
       <div ref='chart' />
