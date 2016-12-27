@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import { Container, Row, Col, Button } from 'reactstrap';
-//import { bind } from 'lodash';
 
 export default class Like extends React.Component {
   render() {
