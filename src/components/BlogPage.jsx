@@ -1,5 +1,5 @@
 import React from 'react';
-import { bind, map } from 'lodash';
+import { bind, map, assign } from 'lodash';
 
 import BlogList from './BlogList';
 import PieChart from './PieChart';
@@ -13,7 +13,9 @@ export default class BlogPage extends React.Component {
   }
 
   incrementLikes(itemId) {
-    const newItems =  map(this.state.items, function(item) {
+    const items = assign({}, this.state.items);
+    //const newItems =  map(this.state.items, function(item) {
+    const newItems =  map(items, function(item) {
       if (item.id === itemId) ++item.likes;
       return item;
     })
