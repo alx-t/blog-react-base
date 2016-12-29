@@ -5,11 +5,11 @@ import BlogItem from './BlogItem';
 
 export default class BlogList extends React.Component {
   render() {
-    const items = this.props.items;
-    const listItems = map(items, function(item, key) {
+    const { items, likeHandler } = this.props;
+    const listItems = map(items, function(item) {
       return (
-        <div key={key}>
-          <BlogItem item={item} />
+        <div key={item.id}>
+          <BlogItem item={item} likeHandler={() => likeHandler(item.id)} />
         </div>
       );
     });
@@ -23,5 +23,6 @@ export default class BlogList extends React.Component {
 }
 
 BlogList.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.shape(BlogItem.propTypes))
+  items: PropTypes.arrayOf(PropTypes.shape(BlogItem.propTypes)),
+  likeHandler: PropTypes.func
 }

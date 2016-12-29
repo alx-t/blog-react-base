@@ -1,27 +1,15 @@
 import React, { PropTypes } from 'react';
 import { Container, Row, Col, Button } from 'reactstrap';
-import { bind } from 'lodash';
 
 export default class Like extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { likes: props.likes }
-
-    this.handleClick = bind(this.handleClick, this);
-  }
-
-  handleClick(e) {
-    this.setState({ likes: this.state.likes + 1 })
-  }
-
   render() {
-    const likes = this.state.likes;
+    const { likes, likeHandler } = this.props;
     return (
       <Container>
         <Row>
           <Col xs='2'>Likes: {likes}</Col>
           <Col xs='2'>
-            <Button color="info" onClick={this.handleClick}>Like</Button>
+            <Button color="info" onClick={likeHandler}>Like</Button>
           </Col>
         </Row>
       </Container>
@@ -30,7 +18,8 @@ export default class Like extends React.Component {
 }
 
 Like.propTypes = {
-  likes: PropTypes.number
+  likes: PropTypes.number,
+  likeHandler: PropTypes.func
 }
 
 Like.defaultProps = {

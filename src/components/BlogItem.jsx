@@ -9,6 +9,8 @@ import Like from './Like';
 export default class BlogItem extends React.Component {
   render() {
     const { image, text, meta, likes } = this.props.item;
+    const likeHandler = this.props.likeHandler;
+
     return (
       <Container>
         <Row>
@@ -23,7 +25,7 @@ export default class BlogItem extends React.Component {
           <Meta {...meta} />
         </Row>
         <Row>
-          <Like likes={likes} />
+          <Like likes={likes} likeHandler={likeHandler} />
         </Row>
       </Container>
     );
@@ -34,7 +36,8 @@ BlogItem.propTypes = {
   image: PropTypes.shape(Image.propTypes),
   text: PropTypes.string,
   meta: PropTypes.shape(Meta.propTypes),
-  likes: PropTypes.number
+  likes: PropTypes.number,
+  likeHandler: PropTypes.func
 }
 
 // Image & Meta got defaults
