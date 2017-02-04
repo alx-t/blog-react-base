@@ -2,7 +2,7 @@
 
 # dependencies
 node_modules
-semantic
+semantic/dist
 
 # testing
 coverage
