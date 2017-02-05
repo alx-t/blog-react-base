@@ -1,9 +1,8 @@
 import React from 'react';
+import { Router, browserHistory } from 'react-router';
 
-import BlogPage from 'components/BlogPage';
+import routes from 'routes';
 
 export const App = () => (
-  <div>
-    <BlogPage />
-  </div>
+  <Router history={browserHistory} routes={routes} />
 );

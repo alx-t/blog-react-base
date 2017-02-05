@@ -1,35 +1,28 @@
 import React, { PropTypes } from 'react';
-import { Grid } from 'semantic-ui-react';
+import { Item, Image } from 'semantic-ui-react';
 
-import Image from './elements/Image';
-import TextBox from './elements/TextBox';
+import { postsPath } from 'helpers/routes';
+
 import Meta from './elements/Meta';
 import Like from './elements/Like';
+import Link from 'components/elements/Link';
 
 export default class BlogItem extends React.Component {
   render() {
-    const { image, text, meta } = this.props.item;
+    const { id, image, text, meta } = this.props.item;
     const likeHandler = this.props.likeHandler;
 
     return (
-      <Grid>
-        <Grid.Row columns={2}>
-          <Grid.Column width={2}>
-            <Image {...image} />
-          </Grid.Column>
-          <Grid.Column width={8}>
-            <TextBox>{text}</TextBox>
-          </Grid.Column>
-        </Grid.Row>
-        <Grid.Row columns={2}>
-          <Grid.Column width={6}>
-            <Meta {...meta} />
-          </Grid.Column>
-          <Grid.Column>
-            <Like likes={meta.likes} likeHandler={likeHandler} />
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
+      <Item>
+        <Item.Image {...image} />
+        <Item.Content>
+          <Item.Header>
+            <Link to={postsPath(id)}>{text}</Link>
+          </Item.Header>
+          <Meta {...meta} />
+          <Like likes={meta.likes} likeHandler={likeHandler} />
+        </Item.Content>
+      </Item>
     );
   }
 }

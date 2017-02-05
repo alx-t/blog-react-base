@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { List } from 'semantic-ui-react';
+import { Item, Icon } from 'semantic-ui-react';
 
 import { formatDate } from 'helpers/FormatDate';
 
@@ -7,11 +7,11 @@ export default class Meta extends React.Component {
   render() {
     const { author, createdAt, updatedAt } = this.props;
     return (
-      <List bulleted>
-        <List.Item>Author: {author}</List.Item>
-        <List.Item>Created at: { formatDate(createdAt) }</List.Item>
-        <List.Item>Updated at: { formatDate(updatedAt) }</List.Item>
-      </List>
+      <Item.Meta>
+        <span><Icon name='calendar outline' /> created at: { formatDate(createdAt) }</span>
+        <span><Icon name='history' /> updated at: { formatDate(updatedAt) }</span>
+        <span><Icon name='user' /> author: { author }</span>
+      </Item.Meta>
     );
   }
 }

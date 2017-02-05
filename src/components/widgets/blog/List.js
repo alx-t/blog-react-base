@@ -1,4 +1,6 @@
 import React, { PropTypes } from 'react';
+import { Item } from 'semantic-ui-react';
+
 import { map } from 'lodash';
 
 import BlogItem from './Item';
@@ -8,16 +10,14 @@ export default class BlogList extends React.Component {
     const { items, likeHandler } = this.props;
     const listItems = map(items, function(item) {
       return (
-        <div key={item.id}>
-          <BlogItem item={item} likeHandler={() => likeHandler(item.id)} />
-        </div>
+        <BlogItem item={item} key={item.id} likeHandler={() => likeHandler(item.id)} />
       );
     });
 
     return (
-      <div>
+      <Item.Group>
         {listItems}
-      </div>
+      </Item.Group>
     );
   }
 }
