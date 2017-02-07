@@ -1,13 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-import BlogPage from './components/BlogPage';
+import BlogPage from 'components/BlogPage';
 
-export default class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <BlogPage />
-      </div>
-    );
-  }
-}
+export const App = () => (
+  <div>
+    <BlogPage />
+  </div>
+);
