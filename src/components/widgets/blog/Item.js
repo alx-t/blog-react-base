@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import { Item, Image } from 'semantic-ui-react';
 
 import { postsPath } from 'helpers/routes';
-
 import Meta from './elements/Meta';
 import Like from './elements/Like';
 import Link from 'components/elements/Link';
@@ -29,6 +28,7 @@ export default class BlogItem extends React.Component {
 
 BlogItem.propTypes = {
   item: PropTypes.shape({
+    id: PropTypes.integer,
     image: PropTypes.shape(Image.propTypes),
     text: PropTypes.string,
     meta: PropTypes.shape(Meta.propTypes)
@@ -36,7 +36,6 @@ BlogItem.propTypes = {
   likeHandler: PropTypes.func
 };
 
-// Image & Meta got defaults
 BlogItem.defaultProps = {
   text: 'default text'
 };

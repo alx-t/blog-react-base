@@ -10,7 +10,10 @@ export default class BlogList extends React.Component {
     const { items, likeHandler } = this.props;
     const listItems = map(items, function(item) {
       return (
-        <BlogItem item={item} key={item.id} likeHandler={() => likeHandler(item.id)} />
+        <BlogItem
+          item={item}
+          key={item.id}
+          likeHandler={() => likeHandler(item.id)} />
       );
     });
 

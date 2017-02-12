@@ -6,6 +6,6 @@ const TextBox = (props) => (
 
 TextBox.PropTypes = {
   children: React.PropTypes.string
-}
+};
 
 export default TextBox;

@@ -1,17 +1,38 @@
 import React, { PropTypes } from 'react';
 import { Item } from 'semantic-ui-react';
+import request from 'superagent';
 
 import BlogItem from 'components/widgets/blog/Item';
-import { items } from 'constants/static/items';
+import { host } from 'constants/static/host';
 
-const Post = ({ params }) => (
-  <Item.Group>
-    <BlogItem item={items[params.id - 1]} />
-  </Item.Group>
-);
+export default class Post extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { item: false };
+  }
 
-export default Post;
+  fetchPost() {
+    request.get(
+      `${host}/${this.props.params.id}`,
+      {},
+      (err, res) => this.setState({ item: res.body })
+    );
+  }
+
+  componentDidMount() {
+    this.fetchPost();
+  }
+
+  render() {
+    const post = (this.state.item) ? <BlogItem item={this.state.item} /> : '';
+    return (
+      <Item.Group>
+        {post}
+      </Item.Group>
+    );
+  }
+}
 
 Post.propTypes = {
   params: PropTypes.object
-}
+};

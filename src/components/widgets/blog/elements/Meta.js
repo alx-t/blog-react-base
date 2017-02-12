@@ -8,8 +8,12 @@ export default class Meta extends React.Component {
     const { author, createdAt, updatedAt } = this.props;
     return (
       <Item.Meta>
-        <span><Icon name='calendar outline' /> created at: { formatDate(createdAt) }</span>
-        <span><Icon name='history' /> updated at: { formatDate(updatedAt) }</span>
+        <span><Icon name='calendar outline' />
+          created at: { formatDate(createdAt) }
+        </span>
+        <span><Icon name='history' />
+          updated at: { formatDate(updatedAt) }
+        </span>
         <span><Icon name='user' /> author: { author }</span>
       </Item.Meta>
     );
@@ -18,11 +22,11 @@ export default class Meta extends React.Component {
 
 Meta.propTypes = {
   author: PropTypes.string,
-  createdAt: PropTypes.instanceOf(Date),
-  updatedAt: PropTypes.instanceOf(Date)
+  createdAt: PropTypes.string,
+  updatedAt: PropTypes.string
 };
 
 Meta.defaultProps = {
-  createdAt: new Date(),
-  updatedAt: new Date()
+  createdAt: '',
+  updatedAt: ''
 };
