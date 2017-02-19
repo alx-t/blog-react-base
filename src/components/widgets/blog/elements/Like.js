@@ -1,18 +1,14 @@
 import React, { PropTypes } from 'react';
-import { Grid, Button } from 'semantic-ui-react';
+import { Item, Icon, Button } from 'semantic-ui-react';
 
 export default class Like extends React.Component {
   render() {
     const { likes, likeHandler } = this.props;
     return (
-      <Grid>
-        <Grid.Row columns={2}>
-          <Grid.Column width={4}>Likes: {likes}</Grid.Column>
-          <Grid.Column width={4}>
-            <Button onClick={likeHandler}>Like</Button>
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
+      <Item.Meta>
+        <span><Icon name='empty heart' /> liked: { likes }</span>
+        <Button onClick={likeHandler}>Like</Button>
+      </Item.Meta>
     );
   }
 }

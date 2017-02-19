@@ -1,15 +1,15 @@
 import React from 'react';
 import { bind, map, cloneDeep } from 'lodash';
+import request from 'superagent';
 
 import BlogList from 'components/widgets/blog/List';
 import PieChart from 'components/widgets/blog/PieChart';
-
-import { items as staticItems } from 'constants/static/items';
+import { host } from 'constants/static/host';
 
 export default class BlogPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { items: staticItems };
+    this.state = { items: [] };
     this.incrementLikes = bind(this.incrementLikes,this);
   }
 
@@ -19,6 +19,18 @@ export default class BlogPage extends React.Component {
       return item;
     });
     this.setState({ items: newItems });
+  }
+
+  fetchPosts() {
+    request.get(
+      host,
+      {},
+      (err, res) => this.setState({ items: res.body })
+    );
+  }
+
+  componentDidMount() {
+    this.fetchPosts();
   }
 
   render() {
